@@ -3,11 +3,41 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --primary: #16a34a;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #334155;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #334155;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #16a34a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -23,4 +53,91 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Rimuovi le freccette dai campi numerici */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Stili per export PDF */
+@media print {
+  .pdf-hide {
+    display: none !important;
+  }
+}
+
+.pdf-export-hidden {
+  display: none !important;
+}
+
+/* Forza colori standard per PDF export - evita problemi con LAB/LCH */
+#pdf-content .text-green-600 {
+  color: #16a34a !important;
+}
+
+#pdf-content .text-blue-600 {
+  color: #2563eb !important;
+}
+
+#pdf-content .text-purple-600 {
+  color: #9333ea !important;
+}
+
+#pdf-content .text-amber-600,
+#pdf-content .text-yellow-600 {
+  color: #d97706 !important;
+}
+
+#pdf-content .text-orange-600 {
+  color: #ea580c !important;
+}
+
+#pdf-content .text-red-600 {
+  color: #dc2626 !important;
+}
+
+#pdf-content .bg-green-50 {
+  background-color: #f0fdf4 !important;
+}
+
+#pdf-content .bg-blue-50 {
+  background-color: #eff6ff !important;
+}
+
+#pdf-content .bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+#pdf-content .bg-amber-50,
+#pdf-content .bg-yellow-50 {
+  background-color: #fffbeb !important;
+}
+
+#pdf-content .bg-orange-50 {
+  background-color: #fff7ed !important;
+}
+
+/* PDF Export - Keep minimal overrides only for PDF generation */
+
+/* Page break control for PDF sections */
+.page-break-before {
+  break-before: page;
+  page-break-before: always;
+}
+
+.page-break-after {
+  break-after: page;
+  page-break-after: always;
+}
+
+.page-break-avoid {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
